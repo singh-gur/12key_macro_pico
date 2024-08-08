@@ -8,10 +8,19 @@
     "python.analysis.extraPaths": [
         "/home/gurbakhshish/.vscode/extensions/joedevivo.vscode-circuitpython-0.2.0-linux-x64/boards/0x239A/0x80F4",
         "/home/gurbakhshish/.vscode/extensions/joedevivo.vscode-circuitpython-0.2.0-linux-x64/stubs",
-        "/home/gurbakhshish/.config/Code/User/globalStorage/joedevivo.vscode-circuitpython/bundle/20240304/adafruit-circuitpython-bundle-py-20240304/lib",
+        "/home/gurbakhshish/.config/Code/User/globalStorage/joedevivo.vscode-circuitpython/bundle/20240730/adafruit-circuitpython-bundle-py-20240730/lib",
         "./lib"
     ],
     "circuitpython.board.version": "7.3.3",
     "circuitpython.board.vid": "0x239A",
-    "circuitpython.board.pid": "0x80F4"
+    "circuitpython.board.pid": "0x80F4",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "hide-files.files": []
 }

@@ -10,7 +10,7 @@ from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.keyboard import Keyboard
 from digitalio import DigitalInOut, Direction, Pull
 
-from map import KEY, MEDIA, SEQ, keymaps_v2
+from map import JIGGLE, KEY, MEDIA, SEQ, jiggler, keymaps_v2
 
 print("---Pico Pad Keyboard---")
 
@@ -55,6 +55,7 @@ for i in range(len(pins)):
 switch_state = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 while True:
+    jiggler.tick()
     for button in range(len(pins)):
         if switch_state[button] == 0:
             if not switches[button].value:
@@ -69,6 +70,8 @@ while True:
                         )
                     elif keymap["type"] == MEDIA:
                         cc.send(keymap["key"])
+                    elif keymap["type"] == JIGGLE:
+                        keymap["key"]()
                 except ValueError:
                     pass
                 switch_state[button] = 1
