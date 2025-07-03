@@ -9,7 +9,7 @@ KEY = 2
 SEQ = 3
 JIGGLE = 4
 
-jiggler = Jiggler(4, 0.3)
+jiggler = Jiggler(shift=5, wait=0.1, times=50)
 
 keymaps_v2 = [
     {"type": KEY, "key": [Keycode.ALT, Keycode.ONE]},
@@ -22,8 +22,8 @@ keymaps_v2 = [
     {"type": KEY, "key": [Keycode.ALT, Keycode.EIGHT]},
     {"type": MEDIA, "key": ConsumerControlCode.SCAN_PREVIOUS_TRACK},
     {"type": MEDIA, "key": ConsumerControlCode.PLAY_PAUSE},
-    {"type": JIGGLE, "key": jiggler.start},
     {"type": JIGGLE, "key": jiggler.stop},
+    {"type": JIGGLE, "key": jiggler.start},
 ]
 
 
