@@ -8,9 +8,10 @@ import board
 import usb_hid
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.keyboard import Keyboard
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 from digitalio import DigitalInOut, Direction, Pull
 
-from map import JIGGLE, KEY, MEDIA, SEQ, jiggler, keymaps_v2
+from map import JIGGLE, KEY, MEDIA, SEQ, TEXT, jiggler, keymaps_v2
 
 print("---Pico Pad Keyboard---")
 
@@ -20,6 +21,7 @@ led.value = True
 
 kbd = Keyboard(usb_hid.devices)
 cc = ConsumerControl(usb_hid.devices)
+kbd_layout = KeyboardLayoutUS(kbd)
 
 
 def run_sequence(kbd: Keyboard, sequence: list):
@@ -68,6 +70,8 @@ while True:
                             kbd,
                             keymap["key"],
                         )
+                    elif keymap["type"] == TEXT:
+                        kbd_layout.write(keymap["key"])
                     elif keymap["type"] == MEDIA:
                         cc.send(keymap["key"])
                     elif keymap["type"] == JIGGLE:
